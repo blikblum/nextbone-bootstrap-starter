@@ -1,16 +1,15 @@
 {
-  "plugins": [
-    "prettier"
-  ],
+  "parser": "@babel/eslint-parser",
   "extends": [
-    "@open-wc/eslint-config",    
+    "@open-wc/eslint-config",
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
-    "max-classes-per-file": "off",
-    "import/extensions": "off"
+    "max-classes-per-file": "off"
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }

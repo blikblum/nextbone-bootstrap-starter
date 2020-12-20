@@ -37,7 +37,7 @@ if (isProd) {
   plugins.push(
     new WebpackPluginServe({
       host: 'localhost',
-      port: '8080',
+      port: 8080,
       static: path.resolve(__dirname, DIST_DIR),
       liveReload: true,
       hmr: false,

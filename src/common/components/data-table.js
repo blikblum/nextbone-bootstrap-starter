@@ -1,13 +1,16 @@
-import { Component, classMap, html } from 'component'
+import { Component, classMap, styleMap, html } from 'component'
 import { property } from 'lit-element'
 import { state, event } from 'nextbone'
 
 class DataTable extends Component {
-  @property()
+  @property({ attribute: false })
   fields = []
 
   @property()
   selected
+
+  @property({ attribute: 'empty-message' })
+  emptyMessage
 
   @state
   collection
@@ -26,6 +29,9 @@ class DataTable extends Component {
   borderless
 
   @property({ type: Boolean })
+  responsive
+
+  @property({ type: Boolean })
   sm
 
   @property({ type: Boolean })
@@ -40,16 +46,81 @@ class DataTable extends Component {
   @event('click', 'tr.item-row')
   onRowClick(e) {
     this.dispatchEvent(
-      new CustomEvent('row-select', { bubbles: true, detail: { model: e.selectorTarget.model } })
+      new CustomEvent('row-select', {
+        bubbles: true,
+        detail: { model: e.selectorTarget.model },
+      })
     )
   }
 
+  showLoading() {
+    if (this.collection.isLoading) {
+      if (this._showLoading === undefined) {
+        this._showLoading = false
+        setTimeout(() => {
+          this._showLoading = this.collection.isLoading || undefined
+          if (this._showLoading) {
+            this.requestUpdate()
+          }
+        }, 100)
+      }
+    } else {
+      this._showLoading = undefined
+    }
+    return this._showLoading
+  }
+
+  renderBody() {
+    if (this.showLoading()) {
+      return html`<tr>
+        <td colspan=${this.fields.length}>
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </td>
+      </tr>`
+    }
+    if (!this.collection.length) {
+      return html`<tr>
+        <td colspan=${this.fields.length}>
+          <div class="d-flex justify-content-center">
+            ${this.emptyMessage}
+          </div>
+        </td>
+      </tr>`
+    }
+
+    return this.collection.map((model) => {
+      return html`
+        <tr
+          class="item-row ${classMap({
+            'table-active': model === this.selected,
+          })}"
+          .model=${model}
+        >
+          ${this.fields.map((field) => {
+            return html`
+              <td>
+                ${field.render ? field.render(model) : model.get(field.attr)}
+              </td>
+            `
+          })}
+        </tr>
+      `
+    })
+  }
+
   render() {
+    if (!this.collection) return html``
+
     const tableClasses = {
       'table-dark': this.dark,
       'table-hover': this.hover,
       'table-bordered': this.bordered,
       'table-borderless': this.borderless,
+      'table-responsive': this.responsive,
       'table-striped': this.striped,
       'table-sm': this.sm,
     }
@@ -64,27 +135,12 @@ class DataTable extends Component {
         <thead class=${classMap(theadClasses)}>
           <tr>
             ${this.fields.map((field) => {
-              return html` <th>${field.title}</th> `
+              return html` <th style=${styleMap(field.styles || {})}>${field.title}</th> `
             })}
           </tr>
         </thead>
         <tbody>
-          ${this.collection.map((model) => {
-            return html`
-              <tr
-                class="item-row ${classMap({
-                  'table-active': model === this.selected,
-                })}"
-                .model=${model}
-              >
-                ${this.fields.map((field) => {
-                  return html`
-                    <td>${field.render ? field.render(model) : model.get(field.attr)}</td>
-                  `
-                })}
-              </tr>
-            `
-          })}
+          ${this.renderBody()}
         </tbody>
       </table>
     `
