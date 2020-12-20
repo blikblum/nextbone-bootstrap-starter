@@ -2,6 +2,7 @@
 to: <%- path%><%- tagName %>.js
 ---
 import { Component, html } from 'component'
+import './<%- tagName %>.scss'
 
 class <%- componentName %> extends Component {
   render () {

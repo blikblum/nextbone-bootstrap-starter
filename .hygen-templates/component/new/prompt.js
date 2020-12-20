@@ -3,10 +3,6 @@ const { normalize } = require('path')
 
 module.exports = {
   prompt: ({ prompter, args }) => {
-    if (args.name) {
-      return Promise.resolve({ allow: true })
-    }
-
     return prompter.prompt([
       {
         type: 'select',
