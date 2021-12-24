@@ -40,7 +40,8 @@ const sassRule = {
 }
 
 module.exports = {
-  addons: ['@storybook/addon-essentials'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.js'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   webpackFinal: async function (config) {
     config.plugins.push(
       new webpack.DefinePlugin({

@@ -27,7 +27,7 @@ class FrontPageRoute extends Route {
     this.el.loginError = error
   }
 
-  @elEvent('login:request', { dom: false })
+  @elEvent('login:request')
   onLoginRequest(data) {
     this.el.isLoading = true
     this.sessionService.login(data)

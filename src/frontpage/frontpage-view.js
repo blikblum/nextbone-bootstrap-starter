@@ -1,28 +1,32 @@
-import { Component, html, property } from 'component'
+import { Component, html } from 'component'
 import { state, Model, event } from 'nextbone'
-import { form } from 'nextbone/form'
+import { FormState } from 'nextbone/form'
 
-@form
+class PerformSigninEvent extends Event {
+  constructor({ model }) {
+    super('perform-signin', { bubbles: true })
+    this.model = model
+  }
+}
+
 class FrontPageView extends Component {
+  form = new FormState(this)
+
   @state
   model = new Model()
 
-  @property()
-  loginError
-
-  @property()
-  isLoading
+  @state
+  session
 
   @event('input', 'input')
-  oninput() {
+  inputInput() {
     // reset error state on input
     this.loginError = null
   }
 
   formSubmit(e) {
     e.preventDefault()
-    this.trigger('login:request', this.model.attributes)
-    this.model.clear()
+    this.dispatchEvent(new PerformSigninEvent({ model: this.model }))
   }
 
   render() {

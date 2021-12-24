@@ -1,112 +1,102 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { WebpackPluginServe } = require('webpack-plugin-serve')
-const autoprefixer = require('autoprefixer')
-const argv = require('webpack-nano/argv')
 
 const DIST_DIR = 'dist'
-const devDevTool = 'source-map' // see https://webpack.js.org/configuration/devtool/ for options
-const prodDevTool = false
+const devDevTool = 'eval-source-map' // see https://webpack.js.org/configuration/devtool/ for options
+const prodDevTool = 'source-map'
 
-const plugins = [
-  new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, 'src/index.html'),
-  }),
-]
+module.exports = ({ data }, { mode }) => {
+  const isProd = mode === 'production'
+  const isPWA = false
 
-const { mode = 'production' } = argv
+  const plugins = [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/index.html'),
+    }),
+    new webpack.DefinePlugin({
+      FIREBASE_REMOTE_DATA: JSON.stringify(isProd || data === 'remote'),
+    }),
+  ]
 
-const isProd = mode === 'production'
+  const entry = ['./src/main.js']
 
-const entry = ['./src/main.js']
+  if (isProd) {
+    if (isPWA) {
+      plugins
+        .push
+        // workbox
+        // new GenerateSW({
+        //   swDest: path.join('sw.js'),
+        // })
+        ()
+    }
+    plugins.push(
+      new MiniCSSExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      })
+    )
+  }
 
-if (isProd) {
-  plugins.push(new CleanWebpackPlugin())
-  plugins.push(
-    new MiniCSSExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    })
-  )
-} else {
-  // dev
-  plugins.push(
-    new WebpackPluginServe({
-      host: 'localhost',
-      port: 8080,
-      static: path.resolve(__dirname, DIST_DIR),
-      liveReload: true,
-      hmr: false,
-      open: true,
-    })
-  )
-
-  entry.push('webpack-plugin-serve/client')
-}
-
-module.exports = {
-  entry,
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, DIST_DIR),
-  },
-  mode,
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        include: [path.resolve('src')],
-        use: [{ loader: 'babel-loader' }],
-      },
-      {
-        test: /\.css$/,
-        use: [isProd ? MiniCSSExtractPlugin.loader : 'style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(sass|scss)$/,
-        use: [
-          isProd ? MiniCSSExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              sourceMap: isProd,
-              plugins: [autoprefixer()],
+  return {
+    entry,
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, DIST_DIR),
+      publicPath: '',
+      clean: true,
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js)$/,
+          include: [path.resolve('src')],
+          use: [{ loader: 'babel-loader' }],
+        },
+        {
+          test: /\.css$/,
+          use: [isProd ? MiniCSSExtractPlugin.loader : 'style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(sass|scss)$/,
+          use: [
+            isProd ? MiniCSSExtractPlugin.loader : 'style-loader',
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: isProd,
+                postcssOptions: {
+                  plugins: ['autoprefixer'],
+                },
+              },
             },
-          },
-          'sass-loader',
-        ],
+            'sass-loader',
+          ],
+        },
+        {
+          test: /\.(woff|woff2|ttf|eot|svg|png)$/,
+          type: 'asset/resource',
+        },
+      ],
+    },
+    resolve: {
+      modules: [path.resolve(__dirname, './src/common'), 'node_modules'],
+    },
+    plugins,
+    devtool: isProd ? prodDevTool : devDevTool,
+    devServer: {
+      compress: true,
+      port: 8084,
+      open: true,
+      static: './dist',
+      client: {
+        overlay: true,
       },
-      {
-        test: /\.(woff|woff2)$/,
-        use: 'url-loader?limit=10000&mimetype=application/font-woff',
-      },
-      {
-        test: /\.ttf$/,
-        use: 'url-loader?limit=10000&mimetype=application/octet-stream',
-      },
-      {
-        test: /\.eot$/,
-        use: 'file-loader',
-      },
-      {
-        test: /\.svg$/,
-        use: 'url-loader?limit=10000&mimetype=image/svg+xml',
-      },
-    ],
-  },
-  resolve: {
-    modules: [path.resolve(__dirname, './src/common'), 'node_modules'],
-  },
-  plugins,
-  devtool: isProd ? prodDevTool : devDevTool,
-  watch: !isProd,
-  watchOptions: {
-    ignored: /node_modules/,
-  },
+    },
+  }
 }

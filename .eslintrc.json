@@ -10,6 +10,12 @@
     "max-classes-per-file": "off"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "webpack": {
+        "env": {
+          "NODE_ENV": "local"
+        }
+      }
+    }
   }
 }
