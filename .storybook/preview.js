@@ -1,1 +1,1 @@
-import '../src/setup/main'
+import '../src/setup/all.js'

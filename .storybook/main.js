@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const autoprefixer = require('autoprefixer')
 
 const sassExcludes = []
 
@@ -17,9 +16,10 @@ const sassRule = {
     {
       loader: 'postcss-loader',
       options: {
-        ident: 'postcss',
         sourceMap: true,
-        plugins: [autoprefixer()],
+        postcssOptions: {
+          plugins: [['autoprefixer', {}]],
+        },
       },
     },
     {
@@ -40,12 +40,18 @@ const sassRule = {
 }
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
+  features: {
+    babelModeV7: true,
+  },
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.js'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: ['@storybook/addon-essentials'],
   webpackFinal: async function (config) {
     config.plugins.push(
       new webpack.DefinePlugin({
-        FIREBASE_REMOTE_DATA: JSON.stringify(false),
+        REMOTE_DATA: JSON.stringify(false),
       })
     )
     if (config.name !== 'manager') {
@@ -56,9 +62,6 @@ module.exports = {
         config.module.rules.splice(ruleIndex, 1)
       }
       config.resolve.modules = [path.resolve(__dirname, '../src/common'), 'node_modules']
-    }
-    config.node = {
-      constants: false,
     }
     config.module.rules.push(sassRule)
     return config
