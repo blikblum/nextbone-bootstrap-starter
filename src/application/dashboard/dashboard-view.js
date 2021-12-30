@@ -2,7 +2,7 @@ import { Component, html } from 'component'
 import { Collection } from 'nextbone'
 import { carSellData } from './carSellData.js'
 
-import 'components/data-table.js'
+import 'luipack/bs-components/data-table'
 
 const sells = new Collection(carSellData)
 

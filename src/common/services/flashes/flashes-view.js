@@ -10,19 +10,28 @@ export default class FlashesView extends Component {
   render() {
     return html`
       <div class="flashes__container">
-        ${this.flashes.map(
-          (model) => html`
-            <div role="alert" class="flashes__alert alert alert-${model.get('type')}">
+        ${this.flashes.map((model) => {
+          const dismissible = Boolean(model.get('dismissible'))
+          return html`
+            <div
+              role="alert"
+              class="flashes__alert alert alert-${model.get('type')} ${dismissible
+                ? 'alert-dismissible'
+                : ''}"
+            >
               <strong>${model.get('title')}</strong>
-              ${Boolean(model.get('dismissible')) &&
+              ${dismissible &&
               html`
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
               `}
             </div>
           `
-        )}
+        })}
       </div>
     `
   }

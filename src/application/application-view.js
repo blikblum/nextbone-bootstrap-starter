@@ -4,6 +4,7 @@ import { withRouterLinks } from 'nextbone-routing'
 
 const navItems = [
   { title: 'Dashboard', route: 'dashboard', icon: 'tv' },
+  { title: 'Notifications', route: 'notifications', icon: 'bell' },
   { title: 'Products', route: 'products', icon: 'shopping-cart' },
   { title: 'Customers', route: 'customers', icon: 'users' },
   { title: 'Reports', route: 'reports', icon: 'chart-bar' },
@@ -34,7 +35,7 @@ class ApplicationView extends Component {
   render() {
     return html`
       <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+        <a class="navbar-brand col-sm-3 col-md-2 me-0" href="#">Company name</a>
         <input
           class="form-control form-control-dark w-100"
           type="text"
@@ -50,7 +51,7 @@ class ApplicationView extends Component {
 
       <div class="container-fluid">
         <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky">
               ${navbarList(navItems, {})}
 
@@ -91,7 +92,7 @@ class ApplicationView extends Component {
             </div>
           </nav>
 
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"></main>
+          <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4"></main>
         </div>
       </div>
     `

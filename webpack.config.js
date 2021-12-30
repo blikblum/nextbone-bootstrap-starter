@@ -16,7 +16,7 @@ module.exports = ({ data }, { mode }) => {
       template: path.resolve(__dirname, 'src/index.html'),
     }),
     new webpack.DefinePlugin({
-      FIREBASE_REMOTE_DATA: JSON.stringify(isProd || data === 'remote'),
+      REMOTE_DATA: JSON.stringify(isProd || data === 'remote'),
     }),
   ]
 
@@ -54,7 +54,7 @@ module.exports = ({ data }, { mode }) => {
       rules: [
         {
           test: /\.(js)$/,
-          include: [path.resolve('src')],
+          include: [path.resolve('src'), path.resolve('node_modules/luipack')],
           use: [{ loader: 'babel-loader' }],
         },
         {
@@ -71,7 +71,7 @@ module.exports = ({ data }, { mode }) => {
               options: {
                 sourceMap: isProd,
                 postcssOptions: {
-                  plugins: ['autoprefixer'],
+                  plugins: [['autoprefixer', {}]],
                 },
               },
             },

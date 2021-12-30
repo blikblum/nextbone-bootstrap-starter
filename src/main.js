@@ -10,6 +10,7 @@ import { FrontPageRoute } from './frontpage/FrontPageRoute'
 // route views / components
 import './application/dashboard/dashboard-view'
 import './application/generic-view'
+import { NotificationsRoute } from './application/notifications/NotificationsRoute.js'
 
 const { flashesService, sessionService } = container
 
@@ -23,6 +24,7 @@ router.map(function routeMap(route) {
   route('frontpage', { path: '/', class: FrontPageRoute })
   route('application', { path: '/app', class: ApplicationRoute }, () => {
     route('dashboard', { path: '', component: 'dashboard-view' })
+    route('notifications', { class: NotificationsRoute })
     route('products', { component: 'generic-view', properties: { title: 'Products' } })
     route('customers', { component: 'generic-view', properties: { title: 'Customers' } })
     route('reports', { component: 'generic-view', properties: { title: 'Reports' } })

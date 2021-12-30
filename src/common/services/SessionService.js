@@ -5,7 +5,8 @@ import { service } from 'next-service'
 class SessionService extends Events {
   isAuthenticated = false
 
-  login({ email, password }) {
+  login(model) {
+    const { password, email } = model.attributes
     setTimeout(() => {
       if (email === 'jon@hotmail.com' && password === '123') {
         this.isAuthenticated = true
