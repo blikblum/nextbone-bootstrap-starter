@@ -1,11 +1,11 @@
 ---
-to: <%- path%><%- tagName %>.stories.js
+to: src/application/<%- path %>/<%- tagName %>.stories.js
 ---
 import { html } from 'lit'
 import './<%- tagName %>.js'
 
 export default {
-  title: 'Components/<%- componentName %>',
+  title: 'Views/<%- componentName %>',
   parameters: {
     actions: {
       handles: [],
