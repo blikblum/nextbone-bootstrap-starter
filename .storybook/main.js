@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const fs = require('fs')
 
 const sassExcludes = []
 
@@ -55,12 +56,26 @@ module.exports = {
       })
     )
     if (config.name !== 'manager') {
-      const ruleIndex = config.module.rules.findIndex(
-        (rule) => rule.use && rule.use.options && rule.use.options.babelrc === false
-      )
-      if (ruleIndex !== -1) {
-        config.module.rules.splice(ruleIndex, 1)
-      }
+      // find plugin-proposal-decorators plugin and patch it
+      config.module.rules.forEach((rule) => {
+        const ruleUse = rule.use && rule.use[0]
+        const isBabelLoader =
+          ruleUse && typeof ruleUse.loader === 'string' && ruleUse.loader.match('babel-loader')
+        if (isBabelLoader && ruleUse.options.plugins) {
+          ruleUse.options.plugins.forEach((plugin) => {
+            if (
+              Array.isArray(plugin) &&
+              typeof plugin[0] === 'string' &&
+              plugin[0].match('plugin-proposal-decorators')
+            ) {
+              console.log('found decorator plugin', JSON.stringify(plugin, null, 2))
+              plugin[1].legacy = false
+              plugin[1].decoratorsBeforeExport = false
+            }
+          })
+        }
+      })
+
       config.resolve.modules = [path.resolve(__dirname, '../src/common'), 'node_modules']
     }
     config.module.rules.push(sassRule)
