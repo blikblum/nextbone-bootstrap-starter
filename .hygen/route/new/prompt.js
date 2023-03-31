@@ -8,18 +8,10 @@ module.exports = {
 
     return prompter.prompt([
       {
-        type: 'select',
-        name: 'scope',
-        message: 'Scope:',
-        choices() {
-          return getRootDirectories()
-        },
-      },
-      {
         type: 'input',
         name: 'path',
         message({ answers }) {
-          return `Path (relative to src/${answers.scope})`
+          return `Path (relative to src/routes)`
         },
       },
       {
@@ -27,7 +19,7 @@ module.exports = {
         name: 'routeName',
         message: 'Route name:',
         initial() {
-          return camelize(this.state.answers.path, '/') + 'Route'
+          return camelize(this.state.answers.path.replace('-', '/'), '/') + 'Route'
         },
       },
       {

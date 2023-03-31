@@ -17,11 +17,11 @@ module.exports = {
         name: 'path',
         message({ answers }) {
           const scope = answers.scope
-          return `Path (relative to src/${scope === 'global' ? 'common/components' : scope})`
+          return `Path (relative to src/${scope === 'global' ? 'components' : scope})`
         },
         result(path) {
           const scope = this.state.answers.scope
-          const basePath = scope === 'global' ? 'common/components' : scope
+          const basePath = scope === 'global' ? 'components' : scope
           return normalize(`src/${basePath}/${path}/`).replace(/\\/gm, '/')
         },
       },

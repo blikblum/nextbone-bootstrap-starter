@@ -1,16 +1,16 @@
-import './setup/all'
+import './setup/all.js'
 import { Radio } from 'nextbone-radio'
 import { Router } from 'nextbone-routing'
 import { container } from 'next-service'
 
 // route classes
-import { ApplicationRoute } from './application/ApplicationRoute'
-import { FrontPageRoute } from './frontpage/FrontPageRoute'
+import { FrontPageRoute } from './frontpage/FrontPageRoute.js'
+import { ApplicationRoute } from './routes/application/ApplicationRoute.js'
+import { NotificationsRoute } from './routes/notifications/NotificationsRoute.js'
 
 // route views / components
-import './application/dashboard/dashboard-view'
-import './application/generic-view'
-import { NotificationsRoute } from './application/notifications/NotificationsRoute.js'
+import './routes/dashboard/dashboard-view.js'
+import './components/generic-view.js'
 
 const { flashesService, sessionService } = container
 

@@ -1,11 +1,12 @@
 ---
-to: "<%= fileScope === 'global' ? h.rootDir() + '/src/common/entities/' : path %><%- name.toLowerCase() %>.js"
+to: "../packages/dialisys-base/models/<%- name.toLowerCase() %>.js"
 ---
-import { Model, Collection } from 'nextbone'
-import { withComputed } from 'nextbone/computed'
-import { withValidation } from 'nextbone/validation'
+import { FireModel } from 'nextbone-firestore'
+import { Collection } from 'nextbone'
+import { withComputed } from 'nextbone/computed.js'
+import { withValidation } from 'nextbone/validation.js'
 
-class <%- name %> extends Model {
+class <%- name %> extends FireModel {
   defaults () {
     return {
 

@@ -1,5 +1,5 @@
 ---
-to: src/application/<%- path %>/<%- tagName %>.stories.js
+to: src/routes/<%- path %>/<%- tagName %>.stories.js
 ---
 import { html } from 'lit'
 import './<%- tagName %>.js'
