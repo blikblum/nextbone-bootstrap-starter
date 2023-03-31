@@ -1,6 +1,7 @@
-import { Component, html } from 'component'
+import { Component, html, property } from 'component'
 
 class GenericView extends Component {
+  @property()
   title
 
   render() {
