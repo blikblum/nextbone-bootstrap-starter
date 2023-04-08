@@ -1,14 +1,12 @@
-import { html } from 'lit'
 import './generic-view.js'
 
 export default {
   title: 'View/GenericView',
+  component: 'generic-view',
 }
 
-const Template = ({ title }) => html`<generic-view title=${title}></generic-view>`
-
-export const Default = Template.bind({})
-
-Default.args = {
-  title: 'Default',
+export const Default = {
+  args: {
+    title: 'Default',
+  },
 }

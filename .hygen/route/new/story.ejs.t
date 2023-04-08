@@ -1,11 +1,11 @@
 ---
 to: src/routes/<%- path %>/<%- tagName %>.stories.js
 ---
-import { html } from 'lit'
 import './<%- tagName %>.js'
 
 export default {
   title: 'Views/<%- componentName %>',
+  component: '<%- tagName %>',
   parameters: {
     actions: {
       handles: [],
@@ -13,10 +13,9 @@ export default {
   },
 }
 
-const Template = ({ }) => {
-  return html`<<%- tagName %>></<%- tagName %>>`
+
+export const Default = {
+  args: {
+  
+  },
 }
-
-export const Default = Template.bind({})
-
-Default.args = {}
