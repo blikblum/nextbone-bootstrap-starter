@@ -2,12 +2,12 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     // This must be specified if "paths" is set
-    "baseUrl": ".",
+    "baseUrl": "./src/",
     // Relative to "baseUrl"
     "paths": {
       "*": [
-        "*",
-        "./src/common/*"
+        "./common/*",
+        "*"
       ]
     }
   }

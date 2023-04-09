@@ -8937,10 +8937,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luipack@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "luipack@npm:0.5.2"
-  checksum: 2a02b62e4ca8023e4ddf1a0d99cc92eb600cf4c27de4bbd0fe56e2299a65f072d7b07f513aa11989f47a34be85eb6c514970a0436433ce8fa7dabe7a91938e2f
+"luipack@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "luipack@npm:0.6.0"
+  checksum: f306d835ff92672c66d3eee3a46f33bcae64f659422fd5ca3a5cb97e6d6e48cded0fda25a374323bca2a4908740e495ae367da9292adb4f5d291aba995973f07
   languageName: node
   linkType: hard
 
@@ -11349,7 +11349,7 @@ __metadata:
     jquery: ^3.6.4
     lit: ^2.7.0
     lodash-es: ^4.17.21
-    luipack: ^0.5.2
+    luipack: ^0.6.0
     mini-css-extract-plugin: ^2.7.5
     next-service: ^0.3.0
     nextbone: ^0.25.0

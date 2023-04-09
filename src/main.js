@@ -2,9 +2,10 @@ import './setup/all.js'
 import { Radio } from 'nextbone-radio'
 import { Router } from 'nextbone-routing'
 import { container } from 'next-service'
+import { showToast } from 'toasts.js'
 
 // route classes
-import { FrontPageRoute } from './frontpage/FrontPageRoute.js'
+import { FrontPageRoute } from './routes/frontpage/FrontPageRoute.js'
 import { ApplicationRoute } from './routes/application/ApplicationRoute.js'
 import { NotificationsRoute } from './routes/notifications/NotificationsRoute.js'
 
@@ -12,7 +13,7 @@ import { NotificationsRoute } from './routes/notifications/NotificationsRoute.js
 import './routes/dashboard/dashboard-view.js'
 import './components/generic-view.js'
 
-const { flashesService, sessionService } = container
+const { sessionService } = container
 
 const router = new Router({
   outlet: '#main-view',
@@ -40,14 +41,11 @@ router.on('all', (...args) => {
 
 // configure flashes service
 
-flashesService.setup({
-  container: '.application__flashes',
-})
-
 router.on('transition:error', (transition, err) => {
-  flashesService.add({
-    type: 'danger',
-    title: `Transition Error: ${err}`,
+  showToast({
+    type: 'error',
+    title: `Transition Error`,
+    message: `${err}`,
   })
 })
 

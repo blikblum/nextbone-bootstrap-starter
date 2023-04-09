@@ -85,7 +85,11 @@ module.exports = ({ data }, { mode }) => {
       ],
     },
     resolve: {
-      modules: [path.resolve(__dirname, './src/common'), 'node_modules'],
+      modules: [
+        path.resolve(__dirname, './src/common'),
+        path.resolve(__dirname, './src'),
+        'node_modules',
+      ],
     },
     plugins,
     devtool: isProd ? prodDevTool : devDevTool,

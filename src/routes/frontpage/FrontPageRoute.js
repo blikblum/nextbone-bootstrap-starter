@@ -1,6 +1,6 @@
 import { Route, elEvent } from 'nextbone-routing'
 import { inject } from 'next-service'
-import './frontpage-view'
+import './frontpage-view.js'
 
 class FrontPageRoute extends Route {
   static component = 'frontpage-view'

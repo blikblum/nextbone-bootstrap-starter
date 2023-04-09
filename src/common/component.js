@@ -2,7 +2,10 @@ import { LitElement, html, css } from 'lit'
 import { customElement, property, query } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
 import { styleMap } from 'lit/directives/style-map.js'
+import { repeat } from 'lit/directives/repeat.js'
+import { when } from 'lit/directives/when.js'
 import { ifDefined } from 'lit/directives/if-defined.js'
+import { ref, createRef } from 'lit/directives/ref.js'
 
 class Component extends LitElement {
   static finalizeStyles(styles) {
@@ -29,4 +32,18 @@ class Component extends LitElement {
   }
 }
 
-export { Component, customElement, html, css, property, classMap, styleMap, ifDefined, query }
+export {
+  Component,
+  customElement,
+  html,
+  css,
+  property,
+  classMap,
+  styleMap,
+  ifDefined,
+  query,
+  when,
+  repeat,
+  ref,
+  createRef,
+}

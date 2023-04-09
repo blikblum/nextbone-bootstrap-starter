@@ -19,7 +19,7 @@
     "jquery": "^3.6.4",
     "lit": "^2.7.0",
     "lodash-es": "^4.17.21",
-    "luipack": "^0.5.2",
+    "luipack": "^0.6.0",
     "next-service": "^0.3.0",
     "nextbone": "^0.25.0",
     "nextbone-modals": "^0.15.0",

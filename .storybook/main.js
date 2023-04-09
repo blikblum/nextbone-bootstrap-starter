@@ -52,7 +52,11 @@ module.exports = {
       })
     )
     if (config.name !== 'manager') {
-      config.resolve.modules = [path.resolve(__dirname, '../src/common'), 'node_modules']
+      config.resolve.modules = [
+        path.resolve(__dirname, '../src/common'),
+        path.resolve(__dirname, '../src'),
+        'node_modules',
+      ]
     }
     config.module.rules.push(sassRule)
     return config

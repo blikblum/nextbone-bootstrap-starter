@@ -1,16 +1,10 @@
 import { Component, html } from 'component'
-import { inject } from 'next-service'
+import { showToast } from 'toasts.js'
 
 class NotificationsView extends Component {
-  @inject
-  flashesService
-
   displayAlert(e) {
     const el = e.target
-    this.flashesService.add({
-      type: el.dataset.type,
-      title: el.textContent.trim(),
-    })
+    showToast({ type: el.dataset.type, message: el.textContent.trim() })
   }
 
   render() {
@@ -33,11 +27,11 @@ class NotificationsView extends Component {
 
       <div class="row">Show alerts / flashes</div>
       <div class="row">
-        <button data-type="danger" class="btn btn-danger col-auto" @click=${this.displayAlert}>
+        <button data-type="error" class="btn btn-danger col-auto" @click=${this.displayAlert}>
           Danger
         </button>
-        <button data-type="success" class="btn btn-success col-auto" @click=${this.displayAlert}>
-          Success
+        <button data-type="warning" class="btn btn-success col-auto" @click=${this.displayAlert}>
+          Warning
         </button>
         <button data-type="info" class="btn btn-info col-auto" @click=${this.displayAlert}>
           Info

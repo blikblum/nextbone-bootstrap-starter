@@ -1,2 +1,1 @@
-import 'services/SessionService'
-import 'services/flashes'
+import 'services/SessionService.js'
