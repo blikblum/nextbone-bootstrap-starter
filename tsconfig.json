@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "experimentalDecorators": true,
     // This must be specified if "paths" is set
     "baseUrl": "./src/",

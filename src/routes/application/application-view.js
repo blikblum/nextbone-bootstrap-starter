@@ -36,6 +36,10 @@ class ApplicationView extends Component {
     return html`
       <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 me-0" href="#">Company name</a>
+        <span class="text-bg-danger text-nowrap"
+          >ENV: ${JSON.stringify(import.meta.env, null, 2)}</span
+        >
+
         <input
           class="form-control form-control-dark w-100"
           type="text"
