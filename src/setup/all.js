@@ -1,7 +1,7 @@
 import '../main.scss'
-import './services'
-import './icons'
+import './services.js'
+import './icons.js'
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-}
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('sw.js')
+// }

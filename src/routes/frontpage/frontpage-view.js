@@ -1,13 +1,7 @@
 import { Component, html } from 'component'
-import { state, Model, event } from 'nextbone'
+import { createTaskEvent } from 'domTask.js'
+import { state, Model } from 'nextbone'
 import { FormState } from 'nextbone/form'
-
-class PerformSigninEvent extends Event {
-  constructor({ model }) {
-    super('perform-signin', { bubbles: true })
-    this.model = model
-  }
-}
 
 class FrontPageView extends Component {
   form = new FormState(this)
@@ -18,18 +12,15 @@ class FrontPageView extends Component {
   @state
   session
 
-  @event('input', 'input')
-  inputInput() {
-    // reset error state on input
-    this.loginError = null
-  }
-
   formSubmit(e) {
     e.preventDefault()
-    this.dispatchEvent(new PerformSigninEvent({ model: this.model }))
+    const { email, password } = this.model.attributes
+    this.dispatchEvent(createTaskEvent('signin-user', { type: 'email', email, password }))
   }
 
   render() {
+    const { loginError, isLogging } = this.session.attributes
+
     return html`
       <style>
         frontpage-view {
@@ -73,23 +64,31 @@ class FrontPageView extends Component {
       </style>
 
       <form class="form-signin text-center" @submit=${this.formSubmit}>
-        ${this.loginError
-          ? html` <div class="alert alert-danger" role="alert">${this.loginError}</div> `
+        ${loginError
+          ? html`
+              <div class="card bg-danger">
+                <div class="card-body">
+                  <h3 class="card-title text-white">${loginError.title}</h3>
+                  <blockquote class="blockquote text-white mb-0">
+                    <p>${loginError.content}</p>
+                  </blockquote>
+                </div>
+              </div>
+            `
           : ''}
         <h1>My App</h1>
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div>Email: jon@hotmail.com Password: 123</div>
-        <label for="inputEmail" class="sr-only">Email address</label>
+        <label for="inputEmail" class="visually-hidden">Email address</label>
         <input
           type="email"
           id="inputEmail"
           class="form-control"
           name="email"
           placeholder="Email address"
-          autofocus
           .value=${this.model.get('email') || null}
         />
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="inputPassword" class="visually-hidden">Password</label>
         <input
           type="password"
           id="inputPassword"
@@ -101,8 +100,8 @@ class FrontPageView extends Component {
         <div class="checkbox mb-3">
           <label> <input name="remember" type="checkbox" value="remember-me" /> Remember me </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ?disabled=${this.isLoading}>
-          ${this.isLoading
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ?disabled=${isLogging}>
+          ${isLogging
             ? html`
                 <span
                   class="spinner-border spinner-border-sm"

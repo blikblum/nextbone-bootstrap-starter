@@ -1,4 +1,5 @@
 import { Route } from 'nextbone-routing'
+import { state } from 'nextbone'
 import './application-view'
 
 class ApplicationRoute extends Route {
