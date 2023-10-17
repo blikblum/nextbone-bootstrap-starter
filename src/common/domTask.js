@@ -121,7 +121,7 @@ export function taskHandler(eventNameOrFunction) {
     registerClassTaskHandler(
       protoOrDescriptor.constructor,
       eventNameOrFunction,
-      propertyDescriptor.value
+      propertyDescriptor.value,
     )
   }
 }
