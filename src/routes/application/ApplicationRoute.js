@@ -1,6 +1,5 @@
 import { Route } from 'nextbone-routing'
-import { state } from 'nextbone'
-import './application-view'
+import './application-view.js'
 
 class ApplicationRoute extends Route {
   static component = 'application-view'
