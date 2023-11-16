@@ -43,6 +43,7 @@ class SessionService extends Events {
     }
   }
 
+  @taskHandler('signout-user')
   async signOut() {
     this.store.set('isLogged', false)
   }

@@ -1,6 +1,7 @@
 import { Component, html } from 'component'
 import './application-view.scss'
 import { withRouterLinks } from 'nextbone-routing'
+import { createDispatcher } from 'domUtils.js'
 
 const navItems = [
   { title: 'Dashboard', route: 'dashboard', icon: 'tv' },
@@ -9,6 +10,8 @@ const navItems = [
   { title: 'Customers', route: 'customers', icon: 'users' },
   { title: 'Reports', route: 'reports', icon: 'chart-bar' },
 ]
+
+const signout = createDispatcher('signout-user')
 
 const navbarList = (items, auth) => {
   return html`
@@ -48,7 +51,7 @@ class ApplicationView extends Component {
         />
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="#" @click=${signout}>Sign out</a>
           </li>
         </ul>
       </nav>

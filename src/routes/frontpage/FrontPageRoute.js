@@ -9,22 +9,8 @@ class FrontPageRoute extends Route {
   @inject(SessionStore)
   sessionStore
 
-  activate() {
-    this.listenTo(this.sessionStore, 'change:isLogged', this.onLogin)
-  }
-
-  deactivate() {
-    this.stopListening(this.sessionStore)
-  }
-
   prepareEl(el) {
     el.session = this.sessionStore
-  }
-
-  onLogin() {
-    if (this.sessionStore.get('isLogged')) {
-      this.$router.transitionTo('application')
-    }
   }
 }
 

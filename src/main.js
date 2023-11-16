@@ -5,6 +5,7 @@ import { container } from 'next-service'
 import { showToast } from 'toasts.js'
 
 // route classes
+import { RootRoute } from 'routes/root/RootRoute.js'
 import { FrontPageRoute } from './routes/frontpage/FrontPageRoute.js'
 import { ApplicationRoute } from './routes/application/ApplicationRoute.js'
 import { NotificationsRoute } from './routes/notifications/NotificationsRoute.js'
@@ -22,13 +23,15 @@ const router = new Router({
 })
 
 router.map(function routeMap(route) {
-  route('frontpage', { path: '/', class: FrontPageRoute })
-  route('application', { path: '/app', class: ApplicationRoute }, () => {
-    route('dashboard', { path: '', component: 'dashboard-view' })
-    route('notifications', { class: NotificationsRoute })
-    route('products', { component: 'generic-view', properties: { title: 'Products' } })
-    route('customers', { component: 'generic-view', properties: { title: 'Customers' } })
-    route('reports', { component: 'generic-view', properties: { title: 'Reports' } })
+  route('root', { path: '/', class: RootRoute }, () => {
+    route('frontpage', { path: '', class: FrontPageRoute })
+    route('application', { path: 'app', class: ApplicationRoute }, () => {
+      route('dashboard', { path: '', component: 'dashboard-view' })
+      route('notifications', { class: NotificationsRoute })
+      route('products', { component: 'generic-view', properties: { title: 'Products' } })
+      route('customers', { component: 'generic-view', properties: { title: 'Customers' } })
+      route('reports', { component: 'generic-view', properties: { title: 'Reports' } })
+    })
   })
 })
 
