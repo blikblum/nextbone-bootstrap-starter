@@ -1,14 +1,10 @@
 ---
 to: <%- path%><%- tagName %>.js
 ---
-import { Component, html, css } from 'component'
+import { Component, html } from 'component'
+import './<%- tagName %>.scss'
 
 class <%- componentName %> extends Component {
-  static styles = [css`
-    <%- tagName %> {
-
-    }
-  `]
 
   render () {
     return html `
