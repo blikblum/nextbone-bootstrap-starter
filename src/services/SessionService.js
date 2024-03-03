@@ -1,11 +1,17 @@
-import { Events } from 'nextbone'
+import { Events, Model } from 'nextbone'
 import { service } from 'next-service'
 import { taskHandler } from 'domTask.js'
 
 @service('sessionService', ['sessionStore'])
 class SessionService extends Events {
+  /**
+   * @param {Model} sessionStore
+   */
   constructor(sessionStore) {
     super()
+    /**
+     * @type {Model}
+     */
     this.store = sessionStore
   }
 

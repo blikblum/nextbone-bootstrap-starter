@@ -1,10 +1,25 @@
 import { Component, html } from 'component'
+import { showAlert, showConfirm, showPrompt } from 'nextbone-modals'
 import { showToast } from 'toasts.js'
 
 class NotificationsView extends Component {
   displayAlert(e) {
     const el = e.target
     showToast({ type: el.dataset.type, message: el.textContent.trim() })
+  }
+
+  showAlert() {
+    showAlert({ title: 'Alert', text: 'This is an alert' })
+  }
+
+  async showConfirm() {
+    const result = await showConfirm({ title: 'Confirm', text: 'This is a confirm' })
+    showToast({ type: 'success', message: result ? 'Confirmed' : 'Canceled' })
+  }
+
+  async showPrompt() {
+    const result = await showPrompt({ title: 'Prompt', text: 'What', value: 'Nothing' })
+    showToast({ type: 'success', message: result })
   }
 
   render() {
@@ -36,6 +51,13 @@ class NotificationsView extends Component {
         <button data-type="info" class="btn btn-info col-auto" @click=${this.displayAlert}>
           Info
         </button>
+      </div>
+
+      <div class="row">Show Modals</div>
+      <div class="row">
+        <button class="btn btn-danger col-auto" @click=${this.showAlert}>Alert</button>
+        <button class="btn btn-success col-auto" @click=${this.showConfirm}>Confirm</button>
+        <button class="btn btn-info col-auto" @click=${this.showPrompt}>Prompt</button>
       </div>
     `
   }

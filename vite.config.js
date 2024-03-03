@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite'
 import tsConfigPaths from 'vite-tsconfig-paths'
 import autoprefixer from 'autoprefixer'
-
-// local copy with fix to https://github.com/owlsdepartment/vite-plugin-babel/issues/12
-import babel from './vite-plugin-babel.js'
+import babel from 'vite-plugin-babel'
 
 export default defineConfig(({ mode }) => {
   const devModes = ['development', 'remote']

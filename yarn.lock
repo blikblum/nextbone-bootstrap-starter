@@ -9302,22 +9302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextbone-modals@npm:^0.16.0":
-  version: 0.16.0
-  resolution: "nextbone-modals@npm:0.16.0"
+"nextbone-modals@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "nextbone-modals@npm:1.0.0"
   peerDependencies:
     jquery: ^3.6.0
     nextbone: ^0.24.1
-  checksum: 8cf22ceee74c28e1c020b0e1d35b2022347146af0d1fb5ce35e04087827d30b06f6e56ad258ca0ad6444e8cea85ee6f450c32202d252ed11798d4673e8b2f987
-  languageName: node
-  linkType: hard
-
-"nextbone-radio@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "nextbone-radio@npm:0.3.0"
-  peerDependencies:
-    nextbone: ^0.20.0
-  checksum: 0ebc5959b8efd9c34031c73c177e5a83ade737c5932d4049c3d4a35f89dd107a7637f1afbf2c7e611df893fe4b96186962494badc49f780e6095e65cbd24dc21
+  checksum: e1de93a63c4e0281747d4e2e0fc163f4d0435b2ea01ccf6ddcffcd1fecaefc9c3013b9c85b0c23609790784d5a64a8efc5098bda64156e70771ac06ed2893652
   languageName: node
   linkType: hard
 
@@ -9333,12 +9324,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextbone@npm:^0.26.0":
-  version: 0.26.0
-  resolution: "nextbone@npm:0.26.0"
+"nextbone@npm:^0.27.3":
+  version: 0.27.3
+  resolution: "nextbone@npm:0.27.3"
   dependencies:
     lodash-es: "npm:^4.17.21"
-  checksum: d318c2a743c682bd5c256ab72c14e6d313dcf2869f814eb7fb8d7d73085ffbf598bbb8a8596046de802f126fb7d945d14e49beafe9201afd7aaee60e781e815d
+  checksum: 03e9e3657526b94fba8ff29c33fadf28553fe4756fbfc08cc31848a1c203237128f9df8cce68d6eb1174e8282306992f10106609e67bb2322f22a1f9ecae9bb8
   languageName: node
   linkType: hard
 
@@ -9996,14 +9987,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.32":
-  version: 8.4.32
-  resolution: "postcss@npm:8.4.32"
+"postcss@npm:^8.4.35":
+  version: 8.4.35
+  resolution: "postcss@npm:8.4.35"
   dependencies:
     nanoid: "npm:^3.3.7"
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
-  checksum: 28084864122f29148e1f632261c408444f5ead0e0b9ea9bd9729d0468818ebe73fe5dc0075acd50c1365dbe639b46a79cba27d355ec857723a24bc9af0f18525
+  checksum: 93a7ce50cd6188f5f486a9ca98950ad27c19dfed996c45c414fa242944497e4d084a8760d3537f078630226f2bd3c6ab84b813b488740f4432e7c7039cd73a20
   languageName: node
   linkType: hard
 
@@ -10767,18 +10758,17 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     luipack: "npm:^0.6.3"
     next-service: "npm:^0.4.1"
-    nextbone: "npm:^0.26.0"
-    nextbone-modals: "npm:^0.16.0"
-    nextbone-radio: "npm:^0.3.0"
+    nextbone: "npm:^0.27.3"
+    nextbone-modals: "npm:^1.0.0"
     nextbone-routing: "npm:^0.14.0"
     prettier: "npm:^3.1.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     sass: "npm:^1.69.5"
     storybook: "npm:7.6.5"
-    vite: "npm:^5.0.10"
-    vite-plugin-babel: "npm:^1.1.3"
-    vite-tsconfig-paths: "npm:4.2.2"
+    vite: "npm:^5.1.4"
+    vite-plugin-babel: "npm:^1.2.0"
+    vite-tsconfig-paths: "npm:4.3.1"
     wc-context: "npm:^1.0.0"
     wc-fontawesome: "npm:^0.4.0"
   languageName: unknown
@@ -11643,17 +11633,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfck@npm:^2.1.0":
-  version: 2.1.1
-  resolution: "tsconfck@npm:2.1.1"
+"tsconfck@npm:^3.0.1":
+  version: 3.0.2
+  resolution: "tsconfck@npm:3.0.2"
   peerDependencies:
-    typescript: ^4.3.5 || ^5.0.0
+    typescript: ^5.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
   bin:
     tsconfck: bin/tsconfck.js
-  checksum: ecabfabfaaa2442babacc7ad7e261432c7be63428095df532b32d5b53cab9591b2d770a5749892d690451571952e1fd8fb62b866f3958a26cf52d472f901c858
+  checksum: bd0666cde64d576701b6b74b45795b76f002ea3c44279ce373426b075f56b47b4a34ee51083a4df7844b0077e2af4cb752a6c6ef246a80339a44351d6367c98c
   languageName: node
   linkType: hard
 
@@ -12066,39 +12056,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-babel@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "vite-plugin-babel@npm:1.1.3"
+"vite-plugin-babel@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "vite-plugin-babel@npm:1.2.0"
   peerDependencies:
     "@babel/core": ^7.0.0
-    vite: ^2.7.0 || ^3.0.0 || ^4.0.0
-  checksum: aaa5d458c74e1b08329c43a72c9c72e3a445aa28567bc13cf0357251686ac4e6dd7f354060f55d51dc8d501154e386c6d190686649eebc781a0f45d9befadc4d
+    vite: ^2.7.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 44448db8e3f9e59dcd928cb21e32c58d2c0a1bd5656113fc5ed8fb65bb166a2dce58f8797a07f598b7a7251cf7eb21369b873ee4586162ed8fae1ce4bd54c95a
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:4.2.2":
-  version: 4.2.2
-  resolution: "vite-tsconfig-paths@npm:4.2.2"
+"vite-tsconfig-paths@npm:4.3.1":
+  version: 4.3.1
+  resolution: "vite-tsconfig-paths@npm:4.3.1"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
-    tsconfck: "npm:^2.1.0"
+    tsconfck: "npm:^3.0.1"
   peerDependencies:
     vite: "*"
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: 790b9a48dd69b6e93bc41455ef0cc63fc8149b40a6d344784067fc2487b0a02f2d6a6d71396214dab7537a52c5e1ddfc88c363232fa707377db161d05e8f68cd
+  checksum: 1432f80750f5cbe181c265eb9fc2e9fff8b25a2858f176dc0a02311e3e826333526ee9c16bb0aaaa8555a417ea944d68a2e8225181215cd9502370f913eb3f79
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.10":
-  version: 5.0.10
-  resolution: "vite@npm:5.0.10"
+"vite@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "vite@npm:5.1.4"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
-    postcss: "npm:^8.4.32"
+    postcss: "npm:^8.4.35"
     rollup: "npm:^4.2.0"
   peerDependencies:
     "@types/node": ^18.0.0 || >=20.0.0
@@ -12128,7 +12118,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 5421e9c7f8cf3152eace9a8b528269141635f367e5dc63c5f1fe2712a766d9757f8197733cf3f28be590afdd520130d38de90c955e6dba6edfa6f9056c1e5ea7
+  checksum: e9003b853f0784260f4fe7ce0190124b347fd8fd6bf889a07080facd0d9a9667eaff4022eddb1ba3f0283ef69d15d77f84bca832082e48874a7a62e7f6d66b08
   languageName: node
   linkType: hard
 

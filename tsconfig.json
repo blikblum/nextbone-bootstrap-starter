@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "allowJs": true,
     "maxNodeModuleJsDepth": 1,
     "allowSyntheticDefaultImports": true,

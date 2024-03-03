@@ -1,5 +1,5 @@
 import './setup/all.js'
-import { Radio } from 'nextbone-radio'
+
 import { Router } from 'nextbone-routing'
 import { container } from 'next-service'
 import { showToast } from 'toasts.js'
@@ -33,13 +33,6 @@ router.map(function routeMap(route) {
       route('reports', { component: 'generic-view', properties: { title: 'Reports' } })
     })
   })
-})
-
-// proxy router events through a Radio channel
-const routerChannel = Radio.channel('router')
-
-router.on('all', (...args) => {
-  routerChannel.trigger(...args)
 })
 
 // configure flashes service
