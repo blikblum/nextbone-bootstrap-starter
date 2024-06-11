@@ -1,5 +1,5 @@
 ---
-to: "../packages/dialisys-base/models/<%- name.toLowerCase() %>.js"
+to: "../packages/nefrolink-base/models/<%- h.inflection.camelize(name, true) %>.js"
 ---
 import { FireModel } from 'nextbone-firestore'
 import { Collection } from 'nextbone'

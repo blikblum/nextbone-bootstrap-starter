@@ -38,6 +38,15 @@ module.exports = {
           return camelize(this.state.answers.tagName, '-')
         },
       },
+      {
+        type: 'select',
+        name: 'template',
+        message: 'Template:',
+        choices: [
+          { message: 'empty', name: 'component-empty-template.ejs.t' },
+          { message: 'dialog', name: 'component-dialog-template.ejs.t' },
+        ],
+      },
     ])
   },
 }

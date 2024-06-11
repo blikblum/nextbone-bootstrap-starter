@@ -2924,6 +2924,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@orchidjs/sifter@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@orchidjs/sifter@npm:1.0.3"
+  dependencies:
+    "@orchidjs/unicode-variants": "npm:^1.0.4"
+  checksum: ed4b142de90dc413371f1d85792f9cdad45c3fe02060d60af41b338b5077c77fd8eb00e2d5ac3e862347a876ce4ccb4bfea2bef4bfba842dc7fdd4523ec1e0e9
+  languageName: node
+  linkType: hard
+
+"@orchidjs/unicode-variants@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@orchidjs/unicode-variants@npm:1.0.4"
+  checksum: 83213445467309e5bfa54f94229c0ecca8f04c9b3ff5e15d8afdde9afa236c190b40b932a3e1299f7b15ce91750832f35656fa418588641e63dd61d6e5cbbe44
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -9870,6 +9886,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:^1.77.4"
     storybook: "npm:^8.1.5"
+    tom-select: "npm:^2.3.1"
     vite: "npm:^5.2.12"
     vite-plugin-babel: "npm:^1.2.0"
     vite-tsconfig-paths: "npm:4.3.2"
@@ -10665,6 +10682,16 @@ __metadata:
   version: 1.0.1
   resolution: "toidentifier@npm:1.0.1"
   checksum: 952c29e2a85d7123239b5cfdd889a0dde47ab0497f0913d70588f19c53f7e0b5327c95f4651e413c74b785147f9637b17410ac8c846d5d4a20a5a33eb6dc3a45
+  languageName: node
+  linkType: hard
+
+"tom-select@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "tom-select@npm:2.3.1"
+  dependencies:
+    "@orchidjs/sifter": "npm:^1.0.3"
+    "@orchidjs/unicode-variants": "npm:^1.0.4"
+  checksum: 785ae8fc648d9a99fb36cc7d541638597dcc349feb1f6f7dc838c9c0edbd78e07f2943ce1b0dc4e925fb8d628d547130cc7bd62aa52347f5b7a4d3e2f8881fe4
   languageName: node
   linkType: hard
 
