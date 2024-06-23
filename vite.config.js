@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import tsConfigPaths from 'vite-tsconfig-paths'
 import autoprefixer from 'autoprefixer'
-import babel from 'vite-plugin-babel'
 
 export default defineConfig(({ mode }) => {
+  // todo: configure sourcemaps
   const devModes = ['development', 'remote']
   return {
     root: 'src',
@@ -13,13 +13,7 @@ export default defineConfig(({ mode }) => {
     },
     publicDir: '../public',
     envDir: '..',
-    plugins: [
-      babel({
-        babelConfig: { sourceMaps: devModes.includes(mode) ? 'inline' : false },
-        filter: /^(?!.*node_modules(?!.*luipack)).*\.jsx?$/,
-      }),
-      tsConfigPaths(),
-    ],
+    plugins: [tsConfigPaths()],
     css: {
       postcss: { plugins: [autoprefixer()] },
     },
