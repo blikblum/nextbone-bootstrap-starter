@@ -1,9 +1,9 @@
 ---
-to: "../packages/nefrolink-base/queries/<%- collection %>Queries.js"
+to: "src/queries/<%- collection %>Queries.ts"
 ---
 import { getFirestore, collection, where, query } from 'firebase/firestore'
 import { FireCollection } from 'nextbone-firestore'
-import { timestampConverter } from '../firebaseUtils.js'
+import { timestampConverter } from 'firebaseUtils.js'
 
 const db = getFirestore()
 

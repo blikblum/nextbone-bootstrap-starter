@@ -2,7 +2,7 @@ import { Component, html } from 'component'
 import './<%- tagName %>.scss'
 
 class <%- componentName %> extends Component {
-  saveClick(event) {
+  saveClick(event: Event) {
     event.preventDefault()
     this.dispatchEvent(new CustomEvent('submit', { detail: {}, bubbles: true }))
   }

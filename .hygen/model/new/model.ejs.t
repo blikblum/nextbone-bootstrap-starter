@@ -1,5 +1,5 @@
 ---
-to: "../packages/nefrolink-base/models/<%- h.inflection.camelize(name, true) %>.js"
+to: "src/models/<%- h.inflection.camelize(name, true) %>.ts"
 ---
 import { FireModel } from 'nextbone-firestore'
 import { Collection } from 'nextbone'

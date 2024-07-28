@@ -1,5 +1,5 @@
 ---
-to: <%- path%><%- tagName %>.stories.js
+to: <%- path%><%- tagName %>.stories.ts
 ---
 import './<%- tagName %>.js'
 

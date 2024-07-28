@@ -1,5 +1,5 @@
 ---
-to: src/routes/<%- path %>/<%- tagName %>.js
+to: src/routes/<%- path %>/<%- tagName %>.ts
 ---
 
 <%- include(`${templates}/${template}`, locals); %>
