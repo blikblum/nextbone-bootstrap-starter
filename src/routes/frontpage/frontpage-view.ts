@@ -1,18 +1,18 @@
-import { Component, html } from 'component'
+import { Component, html, property } from 'component'
 import { createTaskEvent } from 'domTask.js'
-import { state, Model } from 'nextbone'
+import { Model } from 'nextbone'
 import { FormState } from 'nextbone/form'
 
 class FrontPageView extends Component {
   form = new FormState(this)
 
-  @state
+  @property({ type: Model, attribute: false })
   model = new Model()
 
-  @state
-  session
+  @property({ type: Model, attribute: false })
+  session: Model
 
-  formSubmit(e) {
+  formSubmit(e: Event) {
     e.preventDefault()
     const { email, password } = this.model.attributes
     this.dispatchEvent(createTaskEvent('signin-user', { type: 'email', email, password }))

@@ -8487,12 +8487,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-service@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "next-service@npm:0.4.1"
+"next-service@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "next-service@npm:0.5.0"
   dependencies:
     bottlejs: "npm:^2.0.0"
-  checksum: cde5a91bae3ee39d4f4e05bcc6d8d242aee1576bd02194a738bff233af4965a2bc8b087d02546d4997a412377d6af7630982a6668e725d166170968f70acb4e1
+  checksum: 376a32b19ea43a2146b1d5abad850ee0a1a143139a8ad776bb74b746e5d8a18b5e9b55d5a84c2a7f6f548e1c865cb5252d2d9456388193068a05134263e589ec
   languageName: node
   linkType: hard
 
@@ -8506,15 +8506,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextbone-routing@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "nextbone-routing@npm:0.14.0"
+"nextbone-routing@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "nextbone-routing@npm:1.0.3"
   dependencies:
-    slick-router: "npm:^2.5.1"
+    slick-router: "npm:^3.0.1"
   peerDependencies:
-    lodash-es: ^4.17.15
-    nextbone: ^0.20.0
-  checksum: 6e52eb256440c4d70606076a9a8b2cbc333b449ec903ac812481d8fe69ae92dc4ce98eab511ecd284542fca93eb22b08e765017a6d23be651c976c3547bfc208
+    lodash-es: ^4.17.21
+    nextbone: ^0.28.3
+  checksum: 72900fe1d9c790c5d6954cf8ba328d6e256be9082b0350a16a897435ae33a59bde558d1c139af35c228584f32732f2314fcbef7f5b1b3052ec998cd63d4a7d06
   languageName: node
   linkType: hard
 
@@ -8999,13 +8999,6 @@ __metadata:
   version: 0.1.7
   resolution: "path-to-regexp@npm:0.1.7"
   checksum: 701c99e1f08e3400bea4d701cf6f03517474bb1b608da71c78b1eb261415b645c5670dfae49808c89e12cea2dccd113b069f040a80de012da0400191c6dbd1c8
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "path-to-regexp@npm:5.0.0"
-  checksum: 5c1c5a099ee58120b974b17cff7cc4e5d374009cf20ef6d5904a4530f3b400132b668dfe3f009de8485dc5a92ae549d09541a86bb1d5ec84ca2fd298485b13d2
   languageName: node
   linkType: hard
 
@@ -9588,6 +9581,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regexparam@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "regexparam@npm:3.0.0"
+  checksum: 80574803cb9f31d1ec7b10ce1db5be629868794ce331c7098fd9725c4c0891347c2fedc18b17de17bda2441da6ef30218b1ad2d481a4081e33ef773de04f9082
+  languageName: node
+  linkType: hard
+
 "regexpu-core@npm:^5.3.1":
   version: 5.3.2
   resolution: "regexpu-core@npm:5.3.2"
@@ -9877,10 +9877,10 @@ __metadata:
     lit: "npm:^2.8.0"
     lodash-es: "npm:^4.17.21"
     luipack: "npm:^0.6.6"
-    next-service: "npm:^0.4.1"
+    next-service: "npm:^0.5.0"
     nextbone: "npm:^0.28.3"
     nextbone-modals: "npm:^1.0.2"
-    nextbone-routing: "npm:^0.14.0"
+    nextbone-routing: "npm:^1.0.3"
     prettier: "npm:^3.2.5"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -10167,12 +10167,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slick-router@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "slick-router@npm:2.5.1"
+"slick-router@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "slick-router@npm:3.0.1"
   dependencies:
-    path-to-regexp: "npm:^5.0.0"
-  checksum: 86939d98855b9792dd0c23f71a1922e7db0b1a5aacc1197a640dc1955aeee9f796b25640bea6ea7c18558d0256593cfcebaca6aa70f712072e42bf1a80d4f13c
+    regexparam: "npm:^3.0.0"
+  checksum: 2a6d82d837c9ffed4e7b1c090343f30ffb96cb54cc950eb7bd586b53a92a06e51b94e3d0359795dda0d6ef7aa3a0e66a580b645b84916f273e24fe50c081bead
   languageName: node
   linkType: hard
 

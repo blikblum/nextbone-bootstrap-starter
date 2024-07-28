@@ -1,7 +1,7 @@
 import { Component, html } from 'component'
-import './application-view.scss'
-import { withRouterLinks } from 'nextbone-routing'
 import { createDispatcher } from 'domUtils.js'
+
+import './application-view.scss'
 
 const navItems = [
   { title: 'Dashboard', route: 'dashboard', icon: 'tv' },
@@ -15,23 +15,24 @@ const signout = createDispatcher('signout-user')
 
 const navbarList = (items, auth) => {
   return html`
-    <ul class="nav flex-column" routerlinks>
-      ${items.map(({ route, title, icon }) => {
-        const disabled = false //! auth.canAccessRoute(route)
-        return html`
-          <li class="nav-item">
-            <a class="nav-link ${disabled ? 'nav-link-disabled' : ''}" route=${route}>
-              <fa-icon icon=${icon}></fa-icon>
-              <span class="nav-link-text">${title}</span>
-            </a>
-          </li>
-        `
-      })}
-    </ul>
+    <router-links>
+      <ul class="nav flex-column">
+        ${items.map(({ route, title, icon }) => {
+          const disabled = false //! auth.canAccessRoute(route)
+          return html`
+            <li class="nav-item">
+              <a class="nav-link ${disabled ? 'nav-link-disabled' : ''}" route=${route}>
+                <fa-icon icon=${icon}></fa-icon>
+                <span class="nav-link-text">${title}</span>
+              </a>
+            </li>
+          `
+        })}
+      </ul>
+    </router-links>
   `
 }
 
-@withRouterLinks
 class ApplicationView extends Component {
   static outlet = 'main'
 

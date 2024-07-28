@@ -7,7 +7,8 @@
   "rules": {
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
-    "max-classes-per-file": "off"
+    "max-classes-per-file": "off",
+    "no-incompatible-property-type": "off"
   },
   "settings": {
     "import/resolver": {

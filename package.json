@@ -21,10 +21,10 @@
     "lit": "^2.8.0",
     "lodash-es": "^4.17.21",
     "luipack": "^0.6.6",
-    "next-service": "^0.4.1",
+    "next-service": "^0.5.0",
     "nextbone": "^0.28.3",
     "nextbone-modals": "^1.0.2",
-    "nextbone-routing": "^0.14.0",
+    "nextbone-routing": "^1.0.3",
     "tom-select": "^2.3.1",
     "wc-context": "^1.0.0",
     "wc-fontawesome": "^0.4.0"
