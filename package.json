@@ -22,7 +22,7 @@
     "lodash-es": "^4.17.21",
     "luipack": "^0.6.6",
     "next-service": "^0.5.0",
-    "nextbone": "^0.28.3",
+    "nextbone": "^0.28.4",
     "nextbone-modals": "^1.0.2",
     "nextbone-routing": "^1.0.3",
     "tom-select": "^2.3.1",

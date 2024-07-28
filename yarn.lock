@@ -8518,12 +8518,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextbone@npm:^0.28.3":
-  version: 0.28.3
-  resolution: "nextbone@npm:0.28.3"
+"nextbone@npm:^0.28.4":
+  version: 0.28.4
+  resolution: "nextbone@npm:0.28.4"
   dependencies:
     lodash-es: "npm:^4.17.21"
-  checksum: 95269fcebaa684a888c11fa199928e4a9b7474e0ee214e5e03e9412d9fd354e2c0b7713e0052be483077ef538b384136bc1e46b5f2767e832eb731040efb30af
+  checksum: c6bb86120927e6845cf698614d834b153851386cf0e00f5287e7e2164d7743f8214a3a59880eac28ac3f61d7939a3a2506d1e9637b6991aee20dc1f5cb47ee0a
   languageName: node
   linkType: hard
 
@@ -9878,7 +9878,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
     luipack: "npm:^0.6.6"
     next-service: "npm:^0.5.0"
-    nextbone: "npm:^0.28.3"
+    nextbone: "npm:^0.28.4"
     nextbone-modals: "npm:^1.0.2"
     nextbone-routing: "npm:^1.0.3"
     prettier: "npm:^3.2.5"
