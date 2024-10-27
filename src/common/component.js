@@ -6,26 +6,17 @@ import { repeat } from 'lit/directives/repeat.js'
 import { when } from 'lit/directives/when.js'
 import { ifDefined } from 'lit/directives/if-defined.js'
 import { ref, createRef } from 'lit/directives/ref.js'
+import { view } from 'nextbone'
+import { withContext } from 'wc-context/lit.js'
 
-class Component extends LitElement {
-  static finalizeStyles(styles) {
-    // check styles property
-    // remove when / if https://github.com/lit/lit/issues/2881 is resolved
-    if (this.hasOwnProperty('styles')) {
-      const elementStyles = super.finalizeStyles(styles)
-      const styleRoot = document.head
-      // WARNING: This break component encapsulation and applies styles to the document.
-      // These styles should be manually scoped.
-
-      elementStyles.forEach((s) => {
-        const style = document.createElement('style')
-        style.textContent = s.cssText
-        styleRoot.appendChild(style)
-      })
-    }
-
-    return []
+class Component extends withContext(view(LitElement)) {
+  createRenderRoot() {
+    // disable shadow dom
+    return this
   }
+}
+
+class LightComponent extends LitElement {
   createRenderRoot() {
     // disable shadow dom
     return this
@@ -34,6 +25,7 @@ class Component extends LitElement {
 
 export {
   Component,
+  LightComponent,
   customElement,
   html,
   css,

@@ -1,7 +1,11 @@
 {
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
-    "@open-wc/eslint-config",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "rules": {
@@ -9,10 +13,5 @@
     "no-plusplus": "off",
     "max-classes-per-file": "off",
     "no-incompatible-property-type": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": true
-    }
   }
 }

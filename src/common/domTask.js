@@ -104,19 +104,6 @@ export function taskHandler(eventNameOrFunction) {
     return createTaskHandler(eventNameOrFunction)
   }
   return (protoOrDescriptor, methodName, propertyDescriptor) => {
-    if (typeof methodName !== 'string') {
-      const { kind, key, placement, descriptor, initializer } = protoOrDescriptor
-      return {
-        kind,
-        placement,
-        descriptor,
-        initializer,
-        key,
-        finisher(ctor) {
-          registerClassTaskHandler(ctor, eventNameOrFunction, descriptor.value)
-        },
-      }
-    }
     // legacy decorator spec
     registerClassTaskHandler(
       protoOrDescriptor.constructor,

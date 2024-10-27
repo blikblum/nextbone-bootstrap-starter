@@ -4,19 +4,16 @@ import { taskHandler } from 'domTask.js'
 
 @service('sessionService', ['sessionStore'])
 class SessionService extends Events {
-  /**
-   * @param {Model} sessionStore
-   */
-  constructor(sessionStore) {
+  store: Model
+
+  constructor(sessionStore: Model) {
     super()
-    /**
-     * @type {Model}
-     */
+
     this.store = sessionStore
   }
 
   @taskHandler('signin-user')
-  async signIn({ type = 'google', email, password } = {}) {
+  async signIn({ type = 'google', email = '', password = '' } = {}) {
     this.store.set('isLogging', true)
     this.store.set('isLogged', false)
     this.store.unset('loginError')
@@ -26,7 +23,7 @@ class SessionService extends Events {
         break
 
       case 'email':
-        await new Promise((resolve, reject) => {
+        await new Promise<void>((resolve, reject) => {
           setTimeout(() => {
             if (email === 'jon@hotmail.com' && password === '123') {
               this.store.set('isLogged', true)

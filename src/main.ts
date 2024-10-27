@@ -14,7 +14,7 @@ import { NotificationsRoute } from './routes/notifications/NotificationsRoute.js
 import './routes/dashboard/dashboard-view.js'
 import './components/generic-view.js'
 
-const { sessionService } = container
+const { sessionStore } = container
 
 const router = new Router({
   outlet: '#main-view',
@@ -46,7 +46,7 @@ router.on('transition:error', (transition, err) => {
 })
 
 router.on('before:activate', (transition, route) => {
-  if (!sessionService.isAuthenticated && process.env.NODE_ENV !== 'development') {
+  if (!sessionStore.get('isAuthenticated') && !import.meta.env.DEV) {
     transition.redirectTo('frontpage')
   }
 })
