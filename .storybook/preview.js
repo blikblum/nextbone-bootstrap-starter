@@ -1,6 +1,6 @@
 import { withActions } from '@storybook/addon-actions/decorator'
 import { registerContext } from 'wc-context'
-import '../src/setup/all.js'
+import '../src/setup/storybook-preset.js'
 
 /** @type { import('@storybook/web-components').Preview } */
 const preview = {

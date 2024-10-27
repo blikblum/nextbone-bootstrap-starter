@@ -1,4 +1,4 @@
-import './setup/all.js'
+import './setup/app-preset.js'
 
 import { Router } from 'nextbone-routing'
 import { container } from 'next-service'
